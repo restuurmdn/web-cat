@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <style>
+
+@media (max-width: 768px){
+        .hamburger-menu {
+            display: block;
+            z-index: 1001;
+            padding:20px;      
+        }
+        #nav-items {
+            display: none;
+            position: absolute;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background-color: #F8F695;
+            flex-direction: column;
+            padding: 1rem;
+            z-index: 999;
+        }
+        .open{
+            display: flex !important;
+            flex-direction: column;
+
+        }    
+    }
+      /* Reset some default styles */
+      .nav-item {
+            font-family: 'Roboto', serif;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: color 0.3s, background-color 0.3s; /* Added transition for smooth color change */
+        }
+        .nav-item:hover {
+            color: #8B4513; /* Brown color on hover */
+           
+        }
+            .nav-container {
+            position: fixed;
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 80px;
+            border-radius: 0 0 1rem 1rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            font-size: large;
+            background-color:#ffb64d;
+        }
+            .logo-container {
+                display: flex;
+                align-items: center;
+            }
+            .logo-img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: 0.5rem;
+            }
+            .logo-text {
+                font-family: 'Roboto', serif;
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #1f2937;
+            }
+
+      body {
+        overflow-x: hidden;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f8f695;
+        color: #333;
+      }
+
+
+      main {
+        padding: 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      article {
+        background: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1rem;
+        padding: 1rem;
+      }
+
+      article h2 {
+        margin-bottom: 0.5rem;
+      }
+
+      .date {
+        color: #666;
+        font-size: 0.9rem;
+      }
+      .ftr{
+            position: absolute;
+        }
+        .navv{
+            gap: 30px;
+        }
+    </style>
+    </style>
+    <nav class="py-3 nav-container">
+        <div class="logo-container">
+            <img src="./img/logo-kucing.png" alt="Logo" class="logo-img">
+            <span class="logo-text">PetKart</span>
+        </div>
+        <div class="hamburger-menu md:hidden">
+            <button id="hamburger-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="nav-items" class="navv hidden md:flex">
+            <a href="index.html" class="text-gray-800 nav-item font-bold">Home</a>
+            <a href="index.html#care" class="text-gray-800 nav-item font-bold">Care</a>
+            <a href="index.html#our-cats" class="text-gray-800 nav-item font-bold">Cats</a>
+            <a href="index.html#about-us" class="text-gray-800 nav-item font-bold">About us</a>
+            <a href="index.html#blog" class="text-gray-800 nav-item font-bold">Blogs</a>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>    
+    <main>
+      <article>
+        <h2>The Joys of Living with Cats</h2>
+        <p class="date">August 8, 2024</p>
+        <p>
+          Cats are fascinating creatures that bring a unique blend of charm and
+          mystery to our lives. Their independent yet affectionate nature makes
+          them perfect companions for many households. Whether you're a lifelong
+          cat lover or new to feline friends, living with a cat offers countless
+          joys and moments of delight. One of the most endearing qualities of
+          cats is their playful antics. From chasing laser pointers to pouncing
+          on feather toys, cats are endlessly entertained by simple games. Their
+          curiosity often leads them to explore every nook and cranny of your
+          home, turning even ordinary objects into fascinating playthings. This
+          playful behavior not only keeps them active but also provides endless
+          amusement for their human companions. Cats also have a remarkable
+          ability to offer comfort and companionship. Their soft purrs and warm
+          presence can be incredibly soothing, offering a sense of calm after a
+          long day. Many cat owners find that their feline friends have an
+          uncanny knack for sensing when they need a cuddle or some quiet
+          companionship, making them perfect emotional support animals.
+          Additionally, cats are low-maintenance pets compared to some other
+          animals. They groom themselves regularly, require minimal exercise,
+          and are generally content with their own company when you're busy.
+          This independence is one of the reasons cats are so well-suited for
+          modern living, where busy schedules can make demanding pets
+          challenging. In summary, cats enrich our lives in many ways with their
+          playful spirit, comforting presence, and low-maintenance needs.
+          Whether you're watching them nap in a sunny spot or marveling at their
+          acrobatics during playtime, their unique personalities and behaviors
+          make every day with a cat a delightful adventure.
+        </p>
+      </article>
+      <article>
+        <h2>Why Cats Make Perfect Pets</h2>
+        <p class="date">August 7, 2024</p>
+        <p>
+          Cats are often celebrated for their elegant demeanor and unique
+          personalities, making them fantastic pets for many people. Their blend
+          of independence and affection creates a balanced relationship that
+          suits a variety of lifestyles. If you’re considering adding a feline
+          friend to your home, here’s why cats can be the perfect choice. First,
+          cats are incredibly adaptable. They can thrive in various living
+          situations, from small apartments to large houses. Unlike some pets,
+          they don’t require vast amounts of space or constant supervision.
+          Their ability to entertain themselves with minimal interaction means
+          they are well-suited for busy individuals or families. Another reason
+          cats are great pets is their low-maintenance nature. They are
+          generally very clean animals, taking care of their grooming needs on
+          their own. A simple litter box, regular feeding, and a few toys are
+          usually all they need to stay happy and healthy. This makes them an
+          excellent choice for people who might not have the time or resources
+          for more high-maintenance pets. Cats also offer unique emotional
+          benefits. Their gentle purring can be incredibly soothing, helping to
+          reduce stress and anxiety. The simple act of stroking a cat’s soft fur
+          can have a calming effect, providing comfort during challenging times.
+          Cats are also known for their playful antics and curious behavior,
+          which can bring joy and laughter into any home. Additionally, cats
+          have a way of forming deep bonds with their human companions. Despite
+          their independent nature, many cats enjoy cuddling and being close to
+          their owners. They often follow their people around, sit on their
+          laps, and seek out attention in their own endearing ways. This
+          affection, combined with their entertaining quirks, makes for a
+          fulfilling and enriching pet experience. In essence, cats offer a
+          unique combination of independence, low-maintenance care, and
+          affectionate companionship. Their ability to adapt to various living
+          situations and provide emotional comfort makes them ideal pets for
+          many households. If you’re looking for a pet that fits seamlessly into
+          your life while bringing joy and comfort, a cat might just be the
+          perfect choice.
+        </p>
+      </article>
+    </main>
+  </body>
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h2 class="mb-6 text-sm font-semibold text-gray-400 uppercase">Company</h2>
+                <ul class="text-gray-400">
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">About</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Careers</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Brand Center</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="mb-6 text-sm font-semibold text-gray-400 uppercase">Help Center</h2>
+                <ul class="text-gray-400">
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Discord Server</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Twitter</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Facebook</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="mb-6 text-sm font-semibold text-gray-400 uppercase">Legal</h2>
+                <ul class="text-gray-400">
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Privacy Policy</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Licensing</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Terms & Conditions</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="mb-6 text-sm font-semibold text-gray-400 uppercase">Download</h2>
+                <ul class="text-gray-400">
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">iOS</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Android</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Windows</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">MacOS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="ftr w-full bg-gray-800">
+        <div class="container mx-auto py-4 px-6 flex flex-col md:flex-row items-center justify-between">
+            <span class="text-sm text-gray-400 sm:text-center">© 2023™. All Rights Reserved.</span>
+            <div class="flex mt-4 space-x-6 sm:justify-center md:mt-0">
+                <!-- Social media icons, replace # with actual links -->
+                <a href="#" class="text-gray-400 hover:text-white">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+                        <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="sr-only">Facebook page</span>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 21 16">
+                        <path d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/>
+                    </svg>
+                    <span class="sr-only">Discord community</span>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 17">
+                        <path fill-rule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="sr-only">Twitter page</span>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="sr-only">GitHub account</span>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="sr-only">Dribbble account</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navItems = document.getElementById('nav-items');
+
+        hamburgerBtn.addEventListener('click', function () {
+            navItems.classList.toggle('open');
+        });
+    });
+    hamburgerBtn.addEventListener('click', function () {
+    alert('Button clicked!');
+    navItems.classList.toggle('open');
+});
+</script>
+</html>

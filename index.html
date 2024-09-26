@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All About Cats</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Menyembunyikan navbar dan hanya menampilkan hamburger di layar kecil */
+/* Menyembunyikan menu awalnya pada layar kecil */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+        z-index: 1001;
+    }
+    #nav-items {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background-color: #fcfbd1;
+        flex-direction: column;
+        padding: 1rem;
+        z-index: 999;
+    }
+    .care-tips-row {
+        flex-direction: column;
+    }
+   
+    .about-us-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    #blog img {
+        position: absolute;
+        width: 75px; 
+        height: 75px; 
+        margin-left: 65px;
+        margin-bottom: 20px;
+    }
+    #blog p{
+        font-size: 20px;
+        text-align: left;
+        margin-bottom: 40px;
+    }
+    .bg{
+        background-color: rgba(116, 116, 116, 0.5);
+        width: 84%;
+        height: 200px;
+        border-radius: 20px;
+    }
+}
+
+/* Membuat menu terlihat ketika diklik */
+#nav-items.open {
+    display: flex;
+}
+
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        .hover-bounce:hover {
+            animation: bounce 1s;
+        }
+        .custom-shape {
+            clip-path: ellipse(70% 70% at 50% 50%);
+        }
+        body {
+            background-color: #F8F695; /* Beige background color */
+            overflow-x: hidden;
+        }
+        .nav-item {
+        font-family: 'Roboto', serif;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        transition: color 0.3s, background-color 0.3s; /* Added transition for smooth color change */
+    }
+    .nav-item:hover {
+        color: #8B4513; /* Brown color on hover */
+         /* Optional: light background color on hover for better visibility */
+    }
+        .nav-container {
+            position: fixed;
+            top: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 65px;
+            border-radius: 0 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            font-size: large;
+            background-color: #fcfbd1;
+            transition: background-color 0.4s ease-in-out;
+        }
+        .nav-container.scrolled{
+            background-color: #ffb64d;
+            opacity: 0.98;
+        }
+
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        .logo-text {
+            font-family: 'Roboto', serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1f2937;
+        }
+        .main-title {
+            font-size: 3rem; /* Larger font size for title */
+            color: black; /* Changed font color to black */
+            text-align: left; /* Align text to the left */
+        }
+        .main-button {
+            font-size: 1.25rem; /* Larger font size for button */
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+            background-color: #8B4513; /* Brown background color */
+        }
+        .main-button:hover {
+            background-color: #A0522D; /* Darker brown on hover */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+        .main-section {
+            height: 100vh; /* Full viewport height */
+            background-image: url('https://getwallpapers.com/wallpaper/full/d/0/6/1051228-download-free-cartoon-cat-wallpaper-1999x1249-for-lockscreen.jpg'); /* Background image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: flex-start; /* Align items to the left */
+            align-items: center;
+            position: relative;
+            z-index: 0; /* Ensure it is under the navbar */
+            padding-left: 30px;
+        }
+        .care-tips-section {
+            background-color: #F8F695;
+            padding: 3rem 0; /* Increased padding */
+            margin-top: 3rem; /* Increased margin top */
+            text-align: center;
+        }
+        .care-tips-title {
+            font-size: 2.5rem;
+            color: #5a2a07;
+            font-family: 'Roboto', serif;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .care-tips-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem; /* Increased gap */
+        }
+        .care-tips-row {
+            display: flex;
+            justify-content: center;
+            gap: 2rem; /* Increased gap */
+        }
+        .care-tip {
+            text-align: center;
+            font-family: 'Roboto', serif;
+            max-width: 300px;
+            margin: 1rem; /* Added margin */
+            padding: 1.5rem; /* Increased padding */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added box shadow for better visual */
+            border-radius: 0.5rem; /* Rounded corners */
+            background-color: #994509; /* White background for better contrast */
+            transition: transform 0.3s; /* Smooth transition */
+            display: flex;
+            flex-direction: column; /* Align children vertically */
+            justify-content: space-between; /* Space between children */
+        }
+
+        .care-tip .cat-button {
+            margin-top: auto; /* Push the button to the bottom */
+        }
+        .care-tip:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+        .care-tip img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            margin-bottom: 1rem; /* Space between text and image */
+        }
+        .care-tip h3 {
+            font-size: 1.25rem;
+            color: #fff; /* Dark brown color */
+            margin-bottom: 0.5rem; /* Added margin bottom */
+        }
+        .care-tip p {
+            font-size: 1rem;
+            color: #FFF; /* Dark gray color */
+            margin-top: 0.5rem; /* Added margin top */
+        }
+        /* Our Cats Section */
+        .our-cats-section {
+            padding: 3rem 0; /* Increased padding */
+            text-align: center;
+            margin-top: 3rem; /* Increased margin top */
+        }
+        .our-cats-title {
+            font-size: 2.5rem;
+            color: #5a2a07;
+            font-family: 'Roboto', serif;
+            margin-bottom: 2rem;
+        }
+        .cats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem; /* Increased gap */
+            margin-bottom: 2rem; /* Added margin bottom */
+        }
+        .cat {
+            text-align: center;
+            font-family: 'Roboto', serif;
+            width: 300px; /* Set a fixed width */
+            margin: 1rem; /* Added margin */
+            padding: 2rem; /* Increased padding */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added box shadow for better visual */
+            border-radius: 0.5rem; /* Rounded corners */
+            background-color: #994509; /* Background color for better contrast */
+            display: flex; /* Added for Flexbox */
+            flex-direction: column; /* Align children vertically */
+            justify-content: space-between; /* Space between children */
+        }
+        .cat .cat-button {
+            margin-top: auto; /* Push the button to the bottom */
+        }
+        .cat img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            transition: transform 0.3s; /* Smooth transition */
+        }
+        .cat img:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+        .cat-title {
+            font-size: 1.5rem; /* Larger font size for title */
+            margin-top: 1rem;
+        }
+        .cat-description {
+            font-size: 1rem; /* Font size for description */
+            margin-top: 0.5rem; /* Margin top for description */
+        }
+        .cat-button {
+            font-size: 1rem;
+            color: #fff;
+            border: solid #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            margin-top: 1rem;
+            display: inline-block;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+        }
+        .cat-button:hover {
+            background-color: #A0522D;
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+        /* About Us Section */
+        .about-us-section {
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+        .about-us-title {
+            font-size: 2.5rem;
+            color: #5a2a07;
+            font-family: 'Roboto', serif;
+            margin-bottom: 2rem;
+            text-align: center; /* Center the title */
+        }
+        .about-us-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem; /* Add gap between images and text */
+        }
+        .about-us-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 1rem; /* Space between images */
+        }
+        .about-us-images img {
+            width: 150px; /* Set a fixed width for images */
+            height: 150px; /* Set a fixed height for images */
+            object-fit: cover;
+            border-radius: 1rem; /* Rounded corners for images */
+        }
+        .about-us-text {
+            font-size: 1.25rem;
+            color: #1f2937; /* Dark gray color */
+            font-family: 'Calibri', sans-serif;
+            font-weight: bold;
+            max-width: 800px;
+        }
+
+        section.blogs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 3rem;
+        }
+        .blog {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .blog img {
+            border-radius: 50%;
+            width: 200px; /* Increased width */
+            height: 200px; /* Increased height */
+            object-fit: cover;
+            border: 5px solid #fff;
+            transition: transform 0.3s; /* Smooth transition */
+            margin-left: 100px;
+        }
+        .blog img:hover {
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
+        .blog p {
+            font-size: 2rem; /* Increased font size */
+            color: black;
+            font-family: 'Roboto', serif;
+            margin: 0;
+        }
+        .ftr{
+            position: absolute;
+        }
+        .navv{
+            gap: 30px;
+        }
+
+       
+
+    </style>
+</head>
+<body class="flex flex-col min-h-screen scroll-smooth">
+
+    <!-- Navigation Bar -->
+    <nav class="py-3 nav-container">
+        <div class="logo-container">
+            <img src="./img/logo-kucing.png" alt="Logo" class="logo-img">
+            <span class="logo-text">PetKart</span>
+        </div>
+        <div class="hamburger-menu md:hidden">
+            <button id="hamburger-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="nav-items" class="navv hidden md:flex">
+            <a href="#" class="text-gray-800 nav-item font-bold">Home</a>
+            <a href="#care" class="text-gray-800 nav-item font-bold">Care</a>
+            <a href="#our-cats" class="text-gray-800 nav-item font-bold">Cats</a>
+            <a href="#about-us" class="text-gray-800 nav-item font-bold">About us</a>
+            <a href="#blog" class="text-gray-800 nav-item font-bold">Blogs</a>
+        </div>
+    </nav>
+    
+    
+    <!-- Main Section -->
+    <main class="main-section fade-in">
+        <div class="bg container mx-auto flex items-center justify-start"> <!-- Changed justify-center to justify-start -->
+            <div class="flex flex-col items-start text-white">
+                <h1 class="text-4xl mb-6 main-title">All about cats!</h1>
+                <button class="bg-blue-500 text-white py-2 px-6 rounded-lg font-bold main-button"><a href="startreading.html">Start reading</a></button>
+            </div>
+        </div>
+    </main>
+    <!-- Care Tips Section -->
+    <section id="care" class="care-tips-section">
+        <h2 class="care-tips-title">Cat Care Tips</h2>
+        <div class="care-tips-container">
+            <div class="care-tips-row">
+                <div class="care-tip">
+                    <img src="https://i.pinimg.com/236x/3a/c8/b9/3ac8b935aa9b2a72bfb63dedeb6bfb75.jpg" alt="Grooming">
+                    <h3>1. Keep kittens warm</h3>
+                    <p>Ensure your kittens are always in a warm and cozy environment to keep them healthy and comfortable.</p>
+                    <a href="warmkitten.html" class="cat-button">Read More</a>
+                </div>
+                <div class="care-tip">
+                    <img src="https://i.pinimg.com/736x/52/70/4b/52704b2c0916ece3d5318660997fed46.jpg" alt="Nutrition">
+                    <h3>2. Provide kittens with adequate hydration and nutrition.</h3>
+                    <p>Feed your kittens with the right balance of nutrients and ensure they are always hydrated.</p>
+                    <a href="foodkitten.html" class="cat-button">Read More</a>
+                </div>
+                <div class="care-tip">
+                    <img src="https://i.pinimg.com/564x/ec/e3/55/ece35591056177c337c06a25b966d206.jpg" alt="Hydration">
+                    <h3>3. Keep kittens clean.</h3>
+                    <p>Regular cleaning is essential to prevent infections and keep your kittens healthy.</p>
+                    <a href="cleankitten.html" class="cat-button">Read More</a>
+                </div>
+            </div>
+            <div class="care-tips-row">
+                <div class="care-tip">
+                    <img src="https://i.pinimg.com/236x/21/a2/02/21a202e5700f7381eb5e9886e320fd5b.jpg" alt="Veterinary Care">
+                    <h3>4. Provide socialization.</h3>
+                    <p>Socialize your kittens with other pets and humans to ensure they grow up to be friendly and well-adjusted.</p>
+                    <a href="socialisingkitten.html" class="cat-button">Read More</a>
+                </div>
+                <div class="care-tip">
+                    <img src="./img/5.png" alt="Play and Exercise">
+                    <h3>5. Protect from disease.</h3>
+                    <p>Regular vet visits and vaccinations are crucial to protect your kittens from various diseases.</p>
+                    <a href="sickkitten.html" class="cat-button">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Our Cats Section -->
+    <section id="our-cats" class="our-cats-section fade-in">
+        <h2 class="our-cats-title font-bold">OUR CATS</h2>
+        <div class="cats-container">
+            <div class="cat text-white">
+                <img src="img/kcng.jpg" alt="Cat 1">
+                <h3 class="cat-title">Cat 1</h3>
+                <p class="cat-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus.</p>
+                <a href="ReadMoreCat1.html" class="cat-button">Read More</a>
+            </div>
+            <div class="cat text-white">
+                <img src="./img/cat2.jpg" alt="Cat 2">
+                <h3 class="cat-title">Cat 2</h3>
+                <p class="cat-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque?</p>
+                <a href="ReadMoreCat2.html" class="cat-button">Read More</a>
+            </div>
+            <div class="cat text-white">
+                <img src="./img/cat3.jpg" alt="Cat 3">
+                <h3 class="cat-title">Cat 3</h3>
+                <p class="cat-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus!</p>
+                <a href="ReadMoreCat3.html" class="cat-button">Read More</a>
+            </div>
+        </div>
+    </section>
+    <!-- About Us Section -->
+    <section id="about-us" class="about-us-section fade-in">
+        <h2 class="about-us-title font-bold">ABOUT US</h2>
+            <div class="about-us-content">
+                <div class="about-us-images">
+                    <img src="img/cat1.jpg" alt="About Us Image 1">
+                    <img src="img/cat2.jpg" alt="About Us Image 2">
+                    <img src="img/cat3.jpg" alt="About Us Image 3">
+                    <img src="img/kcng.jpg" alt="About Us Image 4">
+                </div>
+            <div class="about-us-text">
+                <p>The cat, commonly referred to as the domestic cat or house cat, is a small domesticated carnivorous mammal. It is the only domesticated species of the family Felidae. <br>
+                Recent advances in archaeology and genetics have shown that the domestication of the cat occurred in the Near East around 7500 BC.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blogs Section -->
+    <section id="blog" class="blogs fade-in">
+        <div class="blog">
+            <img src="img/cat1.jpg" alt="Blog 1">
+            <p>Blog 1</p>
+        </div>
+        <div class="blog">
+            <img src="img/cat2.jpg" alt="Blog 2">
+            <p>Blog 2</p>
+        </div>
+        <div class="blog">
+            <img src="img/cat3.jpg" alt="Blog 3">
+            <p>Blog 3</p>
+        </div>
+        <div class="blog">
+            <img src="img/kcng.jpg" alt="Blog 4">
+            <p>Blog 4</p>
+        </div>
+    </section>
+
+    
+
+
+
+    
+
+    <footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h2 class="mb-6 text-sm font-semibold text-gray-400 uppercase">Company</h2>
+                <ul class="text-gray-400">
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">About</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Careers</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Brand Center</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="mb-6 text-sm font-semibold text-gray-400 uppercase">Help Center</h2>
+                <ul class="text-gray-400">
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Discord Server</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Twitter</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Facebook</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="mb-6 text-sm font-semibold text-gray-400 uppercase">Legal</h2>
+                <ul class="text-gray-400">
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Privacy Policy</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Licensing</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Terms & Conditions</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="mb-6 text-sm font-semibold text-gray-400 uppercase">Download</h2>
+                <ul class="text-gray-400">
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">iOS</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Android</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">Windows</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">MacOS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="ftr w-full bg-gray-800">
+        <div class="container mx-auto py-4 px-6 flex flex-col md:flex-row items-center justify-between">
+            <span class="text-sm text-gray-400 sm:text-center">© 2024™. All Rights Reserved.</span>
+            <div class="flex mt-4 space-x-6 sm:justify-center md:mt-0">
+                <!-- Social media icons, replace # with actual links -->
+                <a href="#" class="text-gray-400 hover:text-white">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+                        <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="sr-only">Facebook page</span>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 21 16">
+                        <path d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/>
+                    </svg>
+                    <span class="sr-only">Discord community</span>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 17">
+                        <path fill-rule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="sr-only">Twitter page</span>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="sr-only">GitHub account</span>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white">
+                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="sr-only">Dribbble account</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navItems = document.getElementById('nav-items');
+
+        hamburgerBtn.addEventListener('click', function () {
+            navItems.classList.toggle('open');
+        });
+    });
+    hamburgerBtn.addEventListener('click', function () {
+    alert('Button clicked!');
+    navItems.classList.toggle('open');
+});
+</script>
+<script>
+    window.addEventListener('scroll', function() {
+    var navContainer = document.querySelector('.nav-container');
+    if (window.scrollY > 50) {
+        navContainer.classList.add('scrolled');
+    } else {
+        navContainer.classList.remove('scrolled');
+    }
+});
+
+</script>
+
+</body>
+</html>
